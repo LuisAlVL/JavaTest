@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Investment</title>
+</head>
+<body>
+<h1 >Investment</h1><br>
+<script>
+    function myFunc(){
+        var tbl= document.getElementById("table");
+        var initialSalary = [[${a}]];
+        var annualInput = [[${b}]];
+        var annualIncrement = [[${c}]]+1;
+        var year = [[${d}]];
+        var performance = [[${e}]]+1;
+        var rend = 0;
+        var benefits = initialSalary ;
+
+
+
+     for( let i = 0; i< [[${d}]] ; i++){
+            benefits+=annualInput;
+            var row = tbl.insertRow();
+            var cell1= row.insertCell();
+            var cell2= row.insertCell();
+            var cell3= row.insertCell();
+            var cell4= row.insertCell();
+            var cell5= row.insertCell();
+            cell1.innerHTML = String(i+1);
+            cell2.innerHTML = String(initialSalary);
+            cell3.innerHTML = String(annualInput);
+            initialSalary+=annualInput;
+            rend=initialSalary;
+            rend*=performance;
+            rend-=initialSalary;
+            initialSalary+=rend;
+            cell4.innerHTML = String(rend);
+            cell5.innerHTML = String(initialSalary);
+            annualInput*=annualIncrement;
+
+        }
+        var tbl2 = document.getElementById("table2");
+        var row = tbl2.insertRow();
+        var cell1= row.insertCell();
+        var cell2= row.insertCell();
+        cell1.innerHTML=initialSalary;
+        cell2.innerHTML=initialSalary-benefits;
+
+    }
+</script>
+<div id='text'></div>
+<button onclick="myFunc();">Fill table</button>
+<table border =1 id = 'table'>
+    <thead>
+    <tr>
+    <td>Año</td>
+    <td>Saldo Inicial</td>
+    <td>Aportación</td>
+    <td>Rendimiento</td>
+    <td> Saldo Final </td>
+    </tr>
+    </thead>
+</table>
+<br>
+<table border =1 id = 'table2'>
+    <thead>
+    <tr>
+        <td>Monto final</td>
+        <td>Ganancia por inversión</td>
+    </tr>
+    </thead>
+</table>
+</body>
+</html>
